@@ -1305,7 +1305,13 @@ const useGameState = () => {
       
       const updatedRelics = prev.inventory.relics.map(r => 
         r.id === relicId 
-          ? { ...r, level: r.level + 1, upgradeCost: Math.floor(r.upgradeCost * 1.5) }
+          ? { 
+              ...r, 
+              level: r.level + 1, 
+              upgradeCost: r.upgradeCost >= 1000 ? 
+                Math.floor(r.upgradeCost * 0.1) : // Reset to 10% of original if >= 1000
+                Math.floor(r.upgradeCost * 1.5) 
+            }
           : r
       );
       
