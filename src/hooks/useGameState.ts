@@ -1686,12 +1686,12 @@ const useGameState = () => {
       setGameState(prev => {
         if (!prev?.gardenOfGrowth.isPlanted || prev.gardenOfGrowth.waterHoursRemaining <= 0) return prev;
         
-        // Base growth rate: 1cm per hour
-        let growthRate = 1 / 3600; // per second
+        // Base growth rate: 3cm per hour (increased from 1cm)
+        let growthRate = 3 / 3600; // per second
         
-        // Apply planting season event (5x faster)
+        // Apply planting season event (15x faster, increased from 5x)
         if (prev.randomEvents.currentEvent?.type === 'planting_season') {
-          growthRate *= 5;
+          growthRate *= 15;
         }
         
         const newGrowthCm = prev.gardenOfGrowth.growthCm + growthRate;
