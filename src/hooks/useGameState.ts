@@ -578,6 +578,7 @@ const useGameState = () => {
       const playerStats = { ...prev.playerStats };
       const combatLog = [...prev.combatLog];
       let newCorrectAnswers = correctAnswersThisCombat;
+      let newTotalQuestions = totalQuestionsThisCombat + 1;
 
       if (hit) {
         newCorrectAnswers++;
