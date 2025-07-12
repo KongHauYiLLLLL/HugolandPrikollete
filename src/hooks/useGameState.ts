@@ -954,12 +954,12 @@ const useGameState = () => {
       const updatedArmor = prev.inventory.armor.map(a => 
         a.id === armorId 
           ? { 
-                  ...a, 
-                  level: a.level + 1, 
-                  upgradeCost: a.upgradeCost >= 1000 ? 
-                    Math.floor(a.upgradeCost * 0.1) : // Reset to 10% of original if >= 1000
-                    Math.floor(a.upgradeCost * 1.5) 
-                }
+              ...a, 
+              level: a.level + 1, 
+              upgradeCost: a.upgradeCost >= 1000 ? 
+                Math.floor(a.upgradeCost * 0.1) : // Reset to 10% of original if >= 1000
+                Math.floor(a.upgradeCost * 1.5) 
+            }
           : a
       );
       
