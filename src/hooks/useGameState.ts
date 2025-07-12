@@ -270,7 +270,7 @@ const eventTypes = [
   {
     type: 'planting_season',
     name: 'Planting Season',
-    description: 'Plants grow 5x faster',
+    description: 'Plants grow 15x faster',
     icon: '🌱'
   },
   {
