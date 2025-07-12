@@ -697,8 +697,8 @@ const useGameState = () => {
       if (enemy.hp <= 0) {
         // Check for absorption if combat took more than 5 questions
         if (newTotalQuestions > 5) {
-          const atkAbsorption = Math.ceil(enemy.atk * 0.15);
-          const hpAbsorption = Math.ceil(enemy.hp * 0.10);
+          const atkAbsorption = Math.ceil(prev.currentEnemy.atk * 0.15);
+          const hpAbsorption = Math.ceil(prev.currentEnemy.maxHp * 0.10);
           
           playerStats.atk += atkAbsorption;
           playerStats.maxHp += hpAbsorption;
