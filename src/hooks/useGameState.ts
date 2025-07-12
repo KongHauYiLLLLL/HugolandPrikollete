@@ -695,6 +695,19 @@ const useGameState = () => {
 
       // Check if enemy is defeated
       if (enemy.hp <= 0) {
+        // Check for absorption if combat took more than 5 questions
+        if (newTotalQuestions > 5) {
+          const atkAbsorption = Math.ceil(enemy.atk * 0.15);
+          const hpAbsorption = Math.ceil(enemy.hp * 0.10);
+          
+          playerStats.atk += atkAbsorption;
+          playerStats.maxHp += hpAbsorption;
+          playerStats.hp += hpAbsorption; // Also increase current HP
+          
+          combatLog.push(`Long battle! You absorbed ${atkAbsorption} ATK and ${hpAbsorption} HP from ${enemy.name}!`);
+        }
+        
+        // Apply all the existing victory logic...
         // Calculate coins using new formula: correct answers * (HP * 100 / 300)
         const coinReward = Math.ceil(newCorrectAnswers * (playerStats.hp * 100 / 300));
         const gemReward = Math.floor(Math.random() * 3) + 1;
