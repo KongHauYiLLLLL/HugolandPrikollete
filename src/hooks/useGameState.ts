@@ -331,6 +331,7 @@ const useGameState = () => {
   const [gameState, setGameState] = useState<GameState | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [correctAnswersThisCombat, setCorrectAnswersThisCombat] = useState(0);
+  const [totalQuestionsThisCombat, setTotalQuestionsThisCombat] = useState(0);
 
   // Load game state from storage
   useEffect(() => {
