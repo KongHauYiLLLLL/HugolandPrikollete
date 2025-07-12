@@ -377,6 +377,14 @@ const useGameState = () => {
             parsedState.randomEvents.currentEvent.endTime = new Date(parsedState.randomEvents.currentEvent.endTime);
           }
           
+          // Ensure random events system exists
+          if (!parsedState.randomEvents) {
+            parsedState.randomEvents = {
+              currentEvent: null,
+              nextEventTime: new Date(Date.now() + Math.random() * 2 * 60 * 60 * 1000)
+            };
+          }
+          
           if (parsedState.yojefMarket?.lastRefresh && typeof parsedState.yojefMarket.lastRefresh === 'string') {
             parsedState.yojefMarket.lastRefresh = new Date(parsedState.yojefMarket.lastRefresh);
           }
