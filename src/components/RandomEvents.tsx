@@ -10,6 +10,12 @@ interface RandomEventsProps {
 export const RandomEvents: React.FC<RandomEventsProps> = ({ randomEvents, onClose }) => {
   const formatTimeRemaining = (endTime: Date): string => {
     const now = new Date();
+    
+    // Safety check: ensure endTime is a valid Date object
+    if (!endTime || !(endTime instanceof Date) || isNaN(endTime.getTime())) {
+      return 'Unknown';
+    }
+    
     const diff = endTime.getTime() - now.getTime();
     
     if (diff <= 0) return 'Ended';
