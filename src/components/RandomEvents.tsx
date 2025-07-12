@@ -48,7 +48,7 @@ export const RandomEvents: React.FC<RandomEventsProps> = ({ randomEvents, onClos
   };
 
   const eventDescriptions = {
-    planting_season: 'Plants in the Garden of Growth grow 5x faster during this event.',
+    planting_season: 'Plants in the Garden of Growth grow 15x faster during this event.',
     meteor_shower: 'A cosmic phenomenon increases all your stats by 50%.',
     mining_frenzy: 'Gem mining yields 7x more gems and shiny gems are 3x more likely.',
     relics_rundown: 'Ancient relics are available at half their usual price.',
