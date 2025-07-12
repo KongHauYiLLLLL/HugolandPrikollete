@@ -125,7 +125,10 @@ export const RandomEvents: React.FC<RandomEventsProps> = ({ randomEvents, onClos
                 Next event starts in: {formatNextEventTime(randomEvents.nextEventTime)}
               </p>
               <p className="text-gray-300 text-sm">
-                Exact time: {randomEvents.nextEventTime.toLocaleString()}
+                Exact time: {randomEvents.nextEventTime instanceof Date && !isNaN(randomEvents.nextEventTime.getTime()) 
+                  ? randomEvents.nextEventTime.toLocaleString()
+                  : 'Unknown'
+                }
               </p>
             </div>
           </div>
