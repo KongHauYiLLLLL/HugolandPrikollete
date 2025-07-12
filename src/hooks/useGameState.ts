@@ -917,7 +917,7 @@ const useGameState = () => {
               ...w, 
               level: w.level + 1, 
               upgradeCost: w.upgradeCost >= 1000 ? 
-                Math.floor(weapon.upgradeCost * 0.1) : // Reset to 10% of original if >= 1000
+                Math.floor(w.upgradeCost * 0.1) : // Reset to 10% of original if >= 1000
                 Math.floor(w.upgradeCost * 1.5) 
             }
           : w
