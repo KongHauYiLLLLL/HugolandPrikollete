@@ -768,6 +768,18 @@ const useGameState = () => {
           combatLog.push('You found a Hugoland Fragment!');
         }
         
+        // Check achievements
+        const newAchievements = checkAchievements(newState);
+        if (newAchievements.length > 0) {
+          newAchievements.forEach(achievement => {
+            const existingIndex = newState.achievements.findIndex(a => a.id === achievement.id);
+            if (existingIndex >= 0) {
+              newState.achievements[existingIndex] = achievement;
+            }
+            combatLog.push(`🏆 Achievement unlocked: ${achievement.name}!`);
+          });
+        }
+        
         // End combat
         newState.currentEnemy = null;
         newState.inCombat = false;
