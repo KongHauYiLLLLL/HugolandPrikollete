@@ -22,6 +22,12 @@ export const RandomEvents: React.FC<RandomEventsProps> = ({ randomEvents, onClos
 
   const formatNextEventTime = (nextTime: Date): string => {
     const now = new Date();
+    
+    // Safety check: ensure nextTime is a valid Date object
+    if (!nextTime || !(nextTime instanceof Date) || isNaN(nextTime.getTime())) {
+      return 'Unknown';
+    }
+    
     const diff = nextTime.getTime() - now.getTime();
     
     if (diff <= 0) return 'Starting soon...';
