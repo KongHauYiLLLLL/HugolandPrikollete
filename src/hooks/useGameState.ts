@@ -364,6 +364,27 @@ const useGameState = () => {
             parsedState.yojefMarket.items = parsedState.yojefMarket.items.slice(0, 2);
           }
           
+          // Convert date strings back to Date objects
+          if (parsedState.randomEvents?.nextEventTime && typeof parsedState.randomEvents.nextEventTime === 'string') {
+            parsedState.randomEvents.nextEventTime = new Date(parsedState.randomEvents.nextEventTime);
+          }
+          
+          if (parsedState.randomEvents?.currentEvent?.startTime && typeof parsedState.randomEvents.currentEvent.startTime === 'string') {
+            parsedState.randomEvents.currentEvent.startTime = new Date(parsedState.randomEvents.currentEvent.startTime);
+          }
+          
+          if (parsedState.randomEvents?.currentEvent?.endTime && typeof parsedState.randomEvents.currentEvent.endTime === 'string') {
+            parsedState.randomEvents.currentEvent.endTime = new Date(parsedState.randomEvents.currentEvent.endTime);
+          }
+          
+          if (parsedState.yojefMarket?.lastRefresh && typeof parsedState.yojefMarket.lastRefresh === 'string') {
+            parsedState.yojefMarket.lastRefresh = new Date(parsedState.yojefMarket.lastRefresh);
+          }
+          
+          if (parsedState.yojefMarket?.nextRefresh && typeof parsedState.yojefMarket.nextRefresh === 'string') {
+            parsedState.yojefMarket.nextRefresh = new Date(parsedState.yojefMarket.nextRefresh);
+          }
+          
           setGameState(parsedState);
         } else {
           const initialState = createInitialGameState();
