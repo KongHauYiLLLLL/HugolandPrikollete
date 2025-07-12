@@ -707,7 +707,7 @@ const useGameState = () => {
           combatLog.push(`Long battle! You absorbed ${atkAbsorption} ATK and ${hpAbsorption} HP from ${enemy.name}!`);
         }
         
-        // Apply all the existing victory logic...
+        // Calculate coins using new formula: correct answers * (HP * 100 / 300)
         // Calculate coins using new formula: correct answers * (HP * 100 / 300)
         const coinReward = Math.ceil(newCorrectAnswers * (playerStats.hp * 100 / 300));
         const gemReward = Math.floor(Math.random() * 3) + 1;
