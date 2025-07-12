@@ -879,6 +879,7 @@ const useGameState = () => {
       newState.combatLog = combatLog.slice(-10); // Keep last 10 messages
       
       setCorrectAnswersThisCombat(newCorrectAnswers);
+      setTotalQuestionsThisCombat(newTotalQuestions);
       return newState;
     });
   }, [gameState, correctAnswersThisCombat]);
