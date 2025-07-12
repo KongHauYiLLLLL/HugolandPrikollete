@@ -478,6 +478,7 @@ const useGameState = () => {
     const availableSkills = generateAdventureSkills();
     
     setCorrectAnswersThisCombat(0);
+    setTotalQuestionsThisCombat(0);
     setGameState(prev => prev ? {
       ...prev,
       currentEnemy: enemy,
