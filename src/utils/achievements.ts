@@ -11,23 +11,31 @@ export const achievementDefinitions: Omit<Achievement, 'unlocked' | 'unlockedAt'
     reward: { coins: 50, gems: 5 }
   },
   {
-    id: 'zone_master_10',
-    name: 'Zone Explorer',
-    description: 'Reach Zone 10',
+    id: 'zone_explorer',
+    name: 'Zone Explorer', 
+    description: 'Reach Zone 5',
     icon: '🗺️',
+    maxProgress: 5,
+    reward: { coins: 100, gems: 5 }
+  },
+  {
+    id: 'zone_master_10',
+    name: 'Zone Master',
+    description: 'Reach Zone 10', 
+    icon: '⚔️',
     maxProgress: 10,
     reward: { coins: 200, gems: 10 }
   },
   {
-    id: 'zone_master_25',
+    id: 'zone_conqueror',
     name: 'Zone Conqueror',
     description: 'Reach Zone 25',
-    icon: '⚔️',
+    icon: '🏔️',
     maxProgress: 25,
     reward: { coins: 500, gems: 25 }
   },
   {
-    id: 'zone_master_50',
+    id: 'zone_legend',
     name: 'Zone Legend',
     description: 'Reach Zone 50 and unlock Premium',
     icon: '👑',
@@ -35,54 +43,74 @@ export const achievementDefinitions: Omit<Achievement, 'unlocked' | 'unlockedAt'
     reward: { coins: 1000, gems: 50, special: 'Premium Access' }
   },
   {
-    id: 'zone_master_100',
-    name: 'Zone Master',
+    id: 'zone_overlord',
+    name: 'Zone Overlord',
     description: 'Reach Zone 100',
-    icon: '🏔️',
+    icon: '🌋',
     maxProgress: 100,
     reward: { coins: 2000, gems: 100 }
-  },
-  {
-    id: 'zone_master_250',
-    name: 'Zone Overlord',
-    description: 'Reach Zone 250',
-    icon: '🌋',
-    maxProgress: 250,
-    reward: { coins: 5000, gems: 250 }
-  },
-  {
-    id: 'zone_master_500',
-    name: 'Zone God',
-    description: 'Reach Zone 500',
-    icon: '🌌',
-    maxProgress: 500,
-    reward: { coins: 10000, gems: 500 }
   },
 
   // Collection Achievements
   {
-    id: 'collector_25',
+    id: 'collector_10',
     name: 'Item Collector',
-    description: 'Collect 25 different items',
+    description: 'Collect 10 different items',
     icon: '📦',
+    maxProgress: 10,
+    reward: { coins: 200, gems: 10 }
+  },
+  {
+    id: 'collector_25',
+    name: 'Master Collector',
+    description: 'Collect 25 different items',
+    icon: '🎒',
     maxProgress: 25,
-    reward: { coins: 300, gems: 15 }
+    reward: { coins: 500, gems: 25 }
   },
   {
     id: 'collector_50',
-    name: 'Master Collector',
+    name: 'Legendary Collector',
     description: 'Collect 50 different items',
-    icon: '🎒',
+    icon: '🏛️',
     maxProgress: 50,
-    reward: { coins: 750, gems: 35 }
+    reward: { coins: 1000, gems: 50 }
+  },
+
+  // Totem Achievements
+  {
+    id: 'first_totem',
+    name: 'First Totem',
+    description: 'Earn your first totem',
+    icon: '🗿',
+    maxProgress: 1,
+    reward: { coins: 200, gems: 10 }
   },
   {
-    id: 'collector_100',
-    name: 'Legendary Collector',
-    description: 'Collect 100 different items',
-    icon: '🏛️',
-    maxProgress: 100,
-    reward: { coins: 1500, gems: 75 }
+    id: 'totem_collector',
+    name: 'Totem Collector',
+    description: 'Collect 5 totems',
+    icon: '🗿',
+    maxProgress: 5,
+    reward: { coins: 1000, gems: 50 }
+  },
+
+  // Damage Streak Achievements
+  {
+    id: 'damage_streak_5',
+    name: 'Damage Streak',
+    description: 'Build a 5x damage streak',
+    icon: '💥',
+    maxProgress: 5,
+    reward: { coins: 300, gems: 15 }
+  },
+  {
+    id: 'damage_streak_10',
+    name: 'Damage Master',
+    description: 'Build a 10x damage streak',
+    icon: '⚡',
+    maxProgress: 10,
+    reward: { coins: 600, gems: 30 }
   },
 
   // Research Achievements
@@ -102,159 +130,103 @@ export const achievementDefinitions: Omit<Achievement, 'unlocked' | 'unlockedAt'
     maxProgress: 10,
     reward: { coins: 800, gems: 40 }
   },
-  {
-    id: 'scholar_tier_25',
-    name: 'Grand Scholar',
-    description: 'Reach Research Level 25',
-    icon: '🎓',
-    maxProgress: 25,
-    reward: { coins: 2000, gems: 100 }
-  },
-  {
-    id: 'scholar_tier_50',
-    name: 'Sage',
-    description: 'Reach Research Level 50',
-    icon: '🔮',
-    maxProgress: 50,
-    reward: { coins: 5000, gems: 250 }
-  },
 
   // Knowledge Streak Achievements
   {
-    id: 'streak_master_10',
+    id: 'streak_master_5',
     name: 'Knowledge Streak',
-    description: 'Get 10 correct answers in a row',
+    description: 'Get 5 correct answers in a row',
     icon: '🔥',
-    maxProgress: 10,
-    reward: { coins: 250, gems: 12 }
+    maxProgress: 5,
+    reward: { coins: 150, gems: 8 }
   },
   {
-    id: 'streak_master_25',
+    id: 'streak_master_10',
     name: 'Genius Streak',
-    description: 'Get 25 correct answers in a row',
+    description: 'Get 10 correct answers in a row',
     icon: '⚡',
-    maxProgress: 25,
-    reward: { coins: 600, gems: 30 }
+    maxProgress: 10,
+    reward: { coins: 300, gems: 15 }
   },
   {
-    id: 'streak_master_50',
+    id: 'streak_master_20',
     name: 'Mastermind Streak',
-    description: 'Get 50 correct answers in a row',
+    description: 'Get 20 correct answers in a row',
     icon: '🌟',
-    maxProgress: 50,
-    reward: { coins: 1500, gems: 75 }
-  },
-  {
-    id: 'streak_master_100',
-    name: 'Legendary Streak',
-    description: 'Get 100 correct answers in a row',
-    icon: '💫',
-    maxProgress: 100,
-    reward: { coins: 3000, gems: 150 }
+    maxProgress: 20,
+    reward: { coins: 800, gems: 40 }
   },
 
   // Wealth Achievements
   {
-    id: 'wealthy_1000',
+    id: 'wealthy_500',
     name: 'Coin Collector',
-    description: 'Earn 1000 total coins',
+    description: 'Earn 500 total coins',
     icon: '💰',
-    maxProgress: 1000,
-    reward: { gems: 20 }
+    maxProgress: 500,
+    reward: { gems: 10 }
+  },
+  {
+    id: 'wealthy_2000',
+    name: 'Rich Adventurer',
+    description: 'Earn 2,000 total coins',
+    icon: '💎',
+    maxProgress: 2000,
+    reward: { gems: 25 }
   },
   {
     id: 'wealthy_10000',
-    name: 'Rich Adventurer',
-    description: 'Earn 10,000 total coins',
-    icon: '💎',
-    maxProgress: 10000,
-    reward: { gems: 50 }
-  },
-  {
-    id: 'wealthy_100000',
     name: 'Wealthy Merchant',
-    description: 'Earn 100,000 total coins',
+    description: 'Earn 10,000 total coins',
     icon: '🏦',
-    maxProgress: 100000,
-    reward: { gems: 200 }
-  },
-  {
-    id: 'wealthy_1000000',
-    name: 'Millionaire',
-    description: 'Earn 1,000,000 total coins',
-    icon: '💸',
-    maxProgress: 1000000,
-    reward: { gems: 1000 }
+    maxProgress: 10000,
+    reward: { gems: 100 }
   },
 
   // Gem Achievements
   {
-    id: 'gem_collector_100',
+    id: 'gem_collector_50',
     name: 'Gem Collector',
-    description: 'Earn 100 total gems',
+    description: 'Earn 50 total gems',
     icon: '💎',
-    maxProgress: 100,
-    reward: { coins: 500 }
+    maxProgress: 50,
+    reward: { coins: 300 }
   },
   {
-    id: 'gem_collector_1000',
+    id: 'gem_collector_200',
     name: 'Gem Master',
-    description: 'Earn 1000 total gems',
+    description: 'Earn 200 total gems',
     icon: '💍',
-    maxProgress: 1000,
-    reward: { coins: 2000 }
-  },
-  {
-    id: 'gem_collector_10000',
-    name: 'Gem Lord',
-    description: 'Earn 10,000 total gems',
-    icon: '👑',
-    maxProgress: 10000,
-    reward: { coins: 10000 }
+    maxProgress: 200,
+    reward: { coins: 1000 }
   },
 
   // Chest Opening Achievements
   {
-    id: 'chest_opener_10',
+    id: 'chest_opener_5',
     name: 'Treasure Hunter',
-    description: 'Open 10 chests',
+    description: 'Open 5 chests',
     icon: '🗝️',
-    maxProgress: 10,
-    reward: { coins: 200, gems: 10 }
+    maxProgress: 5,
+    reward: { coins: 150, gems: 8 }
   },
   {
-    id: 'chest_opener_50',
+    id: 'chest_opener_20',
     name: 'Chest Master',
-    description: 'Open 50 chests',
+    description: 'Open 20 chests',
     icon: '📦',
-    maxProgress: 50,
-    reward: { coins: 1000, gems: 50 }
-  },
-  {
-    id: 'chest_opener_100',
-    name: 'Vault Breaker',
-    description: 'Open 100 chests',
-    icon: '🏛️',
-    maxProgress: 100,
-    reward: { coins: 2500, gems: 125 }
+    maxProgress: 20,
+    reward: { coins: 600, gems: 30 }
   },
 
   // Accuracy Achievements
   {
-    id: 'accuracy_master_90',
+    id: 'accuracy_master_80',
     name: 'Perfect Scholar',
-    description: 'Maintain 90% accuracy over 50 questions',
+    description: 'Maintain 80% accuracy over 20 questions',
     icon: '🎯',
-    maxProgress: 50,
-    reward: { coins: 500, gems: 25 }
-  },
-  {
-    id: 'accuracy_master_95',
-    name: 'Precision Master',
-    description: 'Maintain 95% accuracy over 100 questions',
-    icon: '🏹',
-    maxProgress: 100,
-    reward: { coins: 1500, gems: 75 }
+    maxProgress: 20,
+    reward: { coins: 400, gems: 20 }
   },
 
   // Rarity Achievements
@@ -274,133 +246,75 @@ export const achievementDefinitions: Omit<Achievement, 'unlocked' | 'unlockedAt'
     maxProgress: 1,
     reward: { coins: 500, gems: 25 }
   },
-  {
-    id: 'legendary_collector_10',
-    name: 'Legendary Collector',
-    description: 'Find 10 Legendary items',
-    icon: '⭐',
-    maxProgress: 10,
-    reward: { coins: 2000, gems: 100 }
-  },
-  {
-    id: 'mythical_collector_5',
-    name: 'Mythical Collector',
-    description: 'Find 5 Mythical items',
-    icon: '🌠',
-    maxProgress: 5,
-    reward: { coins: 3000, gems: 150 }
-  },
 
   // Combat Achievements
   {
-    id: 'warrior_100',
+    id: 'warrior_25',
     name: 'Warrior',
-    description: 'Win 100 battles',
+    description: 'Win 25 battles',
     icon: '⚔️',
-    maxProgress: 100,
-    reward: { coins: 1000, gems: 50 }
+    maxProgress: 25,
+    reward: { coins: 500, gems: 25 }
   },
   {
-    id: 'warrior_500',
+    id: 'warrior_100',
     name: 'Battle Master',
-    description: 'Win 500 battles',
+    description: 'Win 100 battles',
     icon: '🛡️',
-    maxProgress: 500,
-    reward: { coins: 3000, gems: 150 }
-  },
-  {
-    id: 'warrior_1000',
-    name: 'War Hero',
-    description: 'Win 1000 battles',
-    icon: '🏆',
-    maxProgress: 1000,
-    reward: { coins: 5000, gems: 250 }
+    maxProgress: 100,
+    reward: { coins: 1500, gems: 75 }
   },
 
   // Mining Achievements
   {
-    id: 'miner_100',
+    id: 'miner_50',
     name: 'Gem Miner',
-    description: 'Mine 100 gems',
+    description: 'Mine 50 gems',
     icon: '⛏️',
-    maxProgress: 100,
-    reward: { coins: 500, gems: 25 }
+    maxProgress: 50,
+    reward: { coins: 300, gems: 15 }
   },
   {
-    id: 'miner_1000',
+    id: 'miner_200',
     name: 'Master Miner',
-    description: 'Mine 1000 gems',
+    description: 'Mine 200 gems',
     icon: '💎',
-    maxProgress: 1000,
-    reward: { coins: 2000, gems: 100 }
+    maxProgress: 200,
+    reward: { coins: 800, gems: 40 }
   },
   {
-    id: 'shiny_hunter_10',
+    id: 'shiny_hunter_5',
     name: 'Shiny Hunter',
-    description: 'Find 10 shiny gems',
+    description: 'Find 5 shiny gems',
     icon: '✨',
-    maxProgress: 10,
-    reward: { coins: 1000, gems: 50 }
-  },
-  {
-    id: 'shiny_hunter_100',
-    name: 'Shiny Master',
-    description: 'Find 100 shiny gems',
-    icon: '🌟',
-    maxProgress: 100,
-    reward: { coins: 5000, gems: 250 }
+    maxProgress: 5,
+    reward: { coins: 500, gems: 25 }
   },
 
   // Special Achievements
   {
-    id: 'enchanted_finder_10',
+    id: 'enchanted_finder_3',
     name: 'Enchanted Finder',
-    description: 'Find 10 enchanted items',
+    description: 'Find 3 enchanted items',
     icon: '🔮',
-    maxProgress: 10,
-    reward: { coins: 1500, gems: 75 }
+    maxProgress: 3,
+    reward: { coins: 600, gems: 30 }
   },
   {
-    id: 'relic_seeker_5',
+    id: 'relic_seeker_3',
     name: 'Relic Seeker',
-    description: 'Own 5 relic items',
+    description: 'Own 3 relic items',
     icon: '🏺',
-    maxProgress: 5,
-    reward: { coins: 2000, gems: 100 }
+    maxProgress: 3,
+    reward: { coins: 800, gems: 40 }
   },
   {
-    id: 'knowledge_master_1000',
+    id: 'knowledge_master_100',
     name: 'Knowledge Master',
-    description: 'Answer 1000 questions correctly',
+    description: 'Answer 100 questions correctly',
     icon: '🧠',
-    maxProgress: 1000,
-    reward: { coins: 3000, gems: 150 }
-  },
-  {
-    id: 'knowledge_master_10000',
-    name: 'Knowledge God',
-    description: 'Answer 10,000 questions correctly',
-    icon: '🎓',
-    maxProgress: 10000,
-    reward: { coins: 10000, gems: 500 }
-  },
-
-  // Time-based Achievements
-  {
-    id: 'daily_player_7',
-    name: 'Weekly Player',
-    description: 'Play for 7 consecutive days',
-    icon: '📅',
-    maxProgress: 7,
+    maxProgress: 100,
     reward: { coins: 1000, gems: 50 }
-  },
-  {
-    id: 'daily_player_30',
-    name: 'Monthly Player',
-    description: 'Play for 30 consecutive days',
-    icon: '🗓️',
-    maxProgress: 30,
-    reward: { coins: 5000, gems: 250 }
   },
 
   // Garden Achievements
@@ -415,18 +329,10 @@ export const achievementDefinitions: Omit<Achievement, 'unlocked' | 'unlockedAt'
   {
     id: 'gardener_master',
     name: 'Master Gardener',
-    description: 'Grow your plant to 50cm',
+    description: 'Grow your plant to 25cm',
     icon: '🌳',
-    maxProgress: 50,
-    reward: { coins: 2000, gems: 100 }
-  },
-  {
-    id: 'gardener_legend',
-    name: 'Legendary Gardener',
-    description: 'Grow your plant to maximum size',
-    icon: '🌲',
-    maxProgress: 100,
-    reward: { coins: 5000, gems: 250 }
+    maxProgress: 25,
+    reward: { coins: 1000, gems: 50 }
   }
 ];
 
@@ -445,29 +351,29 @@ export const checkAchievements = (gameState: GameState): Achievement[] => {
         progress = gameState.zone > 1 ? 1 : 0;
         shouldUnlock = progress >= 1;
         break;
+      case 'zone_explorer':
+        progress = Math.min(gameState.zone, 5);
+        shouldUnlock = gameState.zone >= 5;
+        break;
       case 'zone_master_10':
         progress = Math.min(gameState.zone, 10);
         shouldUnlock = gameState.zone >= 10;
         break;
-      case 'zone_master_25':
+      case 'zone_conqueror':
         progress = Math.min(gameState.zone, 25);
         shouldUnlock = gameState.zone >= 25;
         break;
-      case 'zone_master_50':
+      case 'zone_legend':
         progress = Math.min(gameState.zone, 50);
         shouldUnlock = gameState.zone >= 50;
         break;
-      case 'zone_master_100':
+      case 'zone_overlord':
         progress = Math.min(gameState.zone, 100);
         shouldUnlock = gameState.zone >= 100;
         break;
-      case 'zone_master_250':
-        progress = Math.min(gameState.zone, 250);
-        shouldUnlock = gameState.zone >= 250;
-        break;
-      case 'zone_master_500':
-        progress = Math.min(gameState.zone, 500);
-        shouldUnlock = gameState.zone >= 500;
+      case 'collector_10':
+        progress = Math.min(gameState.collectionBook.totalWeaponsFound + gameState.collectionBook.totalArmorFound, 10);
+        shouldUnlock = progress >= 10;
         break;
       case 'collector_25':
         progress = Math.min(gameState.collectionBook.totalWeaponsFound + gameState.collectionBook.totalArmorFound, 25);
@@ -477,9 +383,21 @@ export const checkAchievements = (gameState: GameState): Achievement[] => {
         progress = Math.min(gameState.collectionBook.totalWeaponsFound + gameState.collectionBook.totalArmorFound, 50);
         shouldUnlock = progress >= 50;
         break;
-      case 'collector_100':
-        progress = Math.min(gameState.collectionBook.totalWeaponsFound + gameState.collectionBook.totalArmorFound, 100);
-        shouldUnlock = progress >= 100;
+      case 'first_totem':
+        progress = gameState.totems > 0 ? 1 : 0;
+        shouldUnlock = progress >= 1;
+        break;
+      case 'totem_collector':
+        progress = Math.min(gameState.totems, 5);
+        shouldUnlock = gameState.totems >= 5;
+        break;
+      case 'damage_streak_5':
+        progress = Math.min(gameState.damageStreak?.current || 0, 5);
+        shouldUnlock = (gameState.damageStreak?.current || 0) >= 5;
+        break;
+      case 'damage_streak_10':
+        progress = Math.min(gameState.damageStreak?.current || 0, 10);
+        shouldUnlock = (gameState.damageStreak?.current || 0) >= 10;
         break;
       case 'scholar_tier_5':
         progress = Math.min(gameState.research.level, 5);
@@ -489,84 +407,52 @@ export const checkAchievements = (gameState: GameState): Achievement[] => {
         progress = Math.min(gameState.research.level, 10);
         shouldUnlock = gameState.research.level >= 10;
         break;
-      case 'scholar_tier_25':
-        progress = Math.min(gameState.research.level, 25);
-        shouldUnlock = gameState.research.level >= 25;
-        break;
-      case 'scholar_tier_50':
-        progress = Math.min(gameState.research.level, 50);
-        shouldUnlock = gameState.research.level >= 50;
+      case 'streak_master_5':
+        progress = Math.min(gameState.knowledgeStreak.best, 5);
+        shouldUnlock = gameState.knowledgeStreak.best >= 5;
         break;
       case 'streak_master_10':
         progress = Math.min(gameState.knowledgeStreak.best, 10);
         shouldUnlock = gameState.knowledgeStreak.best >= 10;
         break;
-      case 'streak_master_25':
-        progress = Math.min(gameState.knowledgeStreak.best, 25);
-        shouldUnlock = gameState.knowledgeStreak.best >= 25;
+      case 'streak_master_20':
+        progress = Math.min(gameState.knowledgeStreak.best, 20);
+        shouldUnlock = gameState.knowledgeStreak.best >= 20;
         break;
-      case 'streak_master_50':
-        progress = Math.min(gameState.knowledgeStreak.best, 50);
-        shouldUnlock = gameState.knowledgeStreak.best >= 50;
+      case 'wealthy_500':
+        progress = Math.min(gameState.statistics.coinsEarned, 500);
+        shouldUnlock = gameState.statistics.coinsEarned >= 500;
         break;
-      case 'streak_master_100':
-        progress = Math.min(gameState.knowledgeStreak.best, 100);
-        shouldUnlock = gameState.knowledgeStreak.best >= 100;
-        break;
-      case 'wealthy_1000':
-        progress = Math.min(gameState.statistics.coinsEarned, 1000);
-        shouldUnlock = gameState.statistics.coinsEarned >= 1000;
+      case 'wealthy_2000':
+        progress = Math.min(gameState.statistics.coinsEarned, 2000);
+        shouldUnlock = gameState.statistics.coinsEarned >= 2000;
         break;
       case 'wealthy_10000':
         progress = Math.min(gameState.statistics.coinsEarned, 10000);
         shouldUnlock = gameState.statistics.coinsEarned >= 10000;
         break;
-      case 'wealthy_100000':
-        progress = Math.min(gameState.statistics.coinsEarned, 100000);
-        shouldUnlock = gameState.statistics.coinsEarned >= 100000;
+      case 'gem_collector_50':
+        progress = Math.min(gameState.statistics.gemsEarned, 50);
+        shouldUnlock = gameState.statistics.gemsEarned >= 50;
         break;
-      case 'wealthy_1000000':
-        progress = Math.min(gameState.statistics.coinsEarned, 1000000);
-        shouldUnlock = gameState.statistics.coinsEarned >= 1000000;
+      case 'gem_collector_200':
+        progress = Math.min(gameState.statistics.gemsEarned, 200);
+        shouldUnlock = gameState.statistics.gemsEarned >= 200;
         break;
-      case 'gem_collector_100':
-        progress = Math.min(gameState.statistics.gemsEarned, 100);
-        shouldUnlock = gameState.statistics.gemsEarned >= 100;
+      case 'chest_opener_5':
+        progress = Math.min(gameState.statistics.chestsOpened, 5);
+        shouldUnlock = gameState.statistics.chestsOpened >= 5;
         break;
-      case 'gem_collector_1000':
-        progress = Math.min(gameState.statistics.gemsEarned, 1000);
-        shouldUnlock = gameState.statistics.gemsEarned >= 1000;
+      case 'chest_opener_20':
+        progress = Math.min(gameState.statistics.chestsOpened, 20);
+        shouldUnlock = gameState.statistics.chestsOpened >= 20;
         break;
-      case 'gem_collector_10000':
-        progress = Math.min(gameState.statistics.gemsEarned, 10000);
-        shouldUnlock = gameState.statistics.gemsEarned >= 10000;
-        break;
-      case 'chest_opener_10':
-        progress = Math.min(gameState.statistics.chestsOpened, 10);
-        shouldUnlock = gameState.statistics.chestsOpened >= 10;
-        break;
-      case 'chest_opener_50':
-        progress = Math.min(gameState.statistics.chestsOpened, 50);
-        shouldUnlock = gameState.statistics.chestsOpened >= 50;
-        break;
-      case 'chest_opener_100':
-        progress = Math.min(gameState.statistics.chestsOpened, 100);
-        shouldUnlock = gameState.statistics.chestsOpened >= 100;
-        break;
-      case 'accuracy_master_90':
-        const totalAnswered90 = gameState.statistics.totalQuestionsAnswered;
-        if (totalAnswered90 >= 50) {
-          const accuracy90 = gameState.statistics.correctAnswers / totalAnswered90;
-          progress = accuracy90 >= 0.9 ? 50 : 0;
-          shouldUnlock = accuracy90 >= 0.9;
-        }
-        break;
-      case 'accuracy_master_95':
-        const totalAnswered95 = gameState.statistics.totalQuestionsAnswered;
-        if (totalAnswered95 >= 100) {
-          const accuracy95 = gameState.statistics.correctAnswers / totalAnswered95;
-          progress = accuracy95 >= 0.95 ? 100 : 0;
-          shouldUnlock = accuracy95 >= 0.95;
+      case 'accuracy_master_80':
+        const totalAnswered80 = gameState.statistics.totalQuestionsAnswered;
+        if (totalAnswered80 >= 20) {
+          const accuracy80 = gameState.statistics.correctAnswers / totalAnswered80;
+          progress = accuracy80 >= 0.8 ? 20 : 0;
+          shouldUnlock = accuracy80 >= 0.8;
         }
         break;
       case 'legendary_finder':
@@ -577,71 +463,47 @@ export const checkAchievements = (gameState: GameState): Achievement[] => {
         progress = gameState.collectionBook.rarityStats.mythical > 0 ? 1 : 0;
         shouldUnlock = progress >= 1;
         break;
-      case 'legendary_collector_10':
-        progress = Math.min(gameState.collectionBook.rarityStats.legendary, 10);
-        shouldUnlock = gameState.collectionBook.rarityStats.legendary >= 10;
-        break;
-      case 'mythical_collector_5':
-        progress = Math.min(gameState.collectionBook.rarityStats.mythical, 5);
-        shouldUnlock = gameState.collectionBook.rarityStats.mythical >= 5;
+      case 'warrior_25':
+        progress = Math.min(gameState.statistics.totalVictories, 25);
+        shouldUnlock = gameState.statistics.totalVictories >= 25;
         break;
       case 'warrior_100':
         progress = Math.min(gameState.statistics.totalVictories, 100);
         shouldUnlock = gameState.statistics.totalVictories >= 100;
         break;
-      case 'warrior_500':
-        progress = Math.min(gameState.statistics.totalVictories, 500);
-        shouldUnlock = gameState.statistics.totalVictories >= 500;
+      case 'miner_50':
+        progress = Math.min(gameState.mining.totalGemsMined, 50);
+        shouldUnlock = gameState.mining.totalGemsMined >= 50;
         break;
-      case 'warrior_1000':
-        progress = Math.min(gameState.statistics.totalVictories, 1000);
-        shouldUnlock = gameState.statistics.totalVictories >= 1000;
+      case 'miner_200':
+        progress = Math.min(gameState.mining.totalGemsMined, 200);
+        shouldUnlock = gameState.mining.totalGemsMined >= 200;
         break;
-      case 'miner_100':
-        progress = Math.min(gameState.mining.totalGemsMined, 100);
-        shouldUnlock = gameState.mining.totalGemsMined >= 100;
+      case 'shiny_hunter_5':
+        progress = Math.min(gameState.mining.totalShinyGemsMined, 5);
+        shouldUnlock = gameState.mining.totalShinyGemsMined >= 5;
         break;
-      case 'miner_1000':
-        progress = Math.min(gameState.mining.totalGemsMined, 1000);
-        shouldUnlock = gameState.mining.totalGemsMined >= 1000;
-        break;
-      case 'shiny_hunter_10':
-        progress = Math.min(gameState.mining.totalShinyGemsMined, 10);
-        shouldUnlock = gameState.mining.totalShinyGemsMined >= 10;
-        break;
-      case 'shiny_hunter_100':
-        progress = Math.min(gameState.mining.totalShinyGemsMined, 100);
-        shouldUnlock = gameState.mining.totalShinyGemsMined >= 100;
-        break;
-      case 'enchanted_finder_10':
+      case 'enchanted_finder_3':
         const enchantedCount = [...gameState.inventory.weapons, ...gameState.inventory.armor]
           .filter(item => item.isEnchanted).length;
-        progress = Math.min(enchantedCount, 10);
-        shouldUnlock = enchantedCount >= 10;
+        progress = Math.min(enchantedCount, 3);
+        shouldUnlock = enchantedCount >= 3;
         break;
-      case 'relic_seeker_5':
-        progress = Math.min(gameState.inventory.relics.length, 5);
-        shouldUnlock = gameState.inventory.relics.length >= 5;
+      case 'relic_seeker_3':
+        progress = Math.min(gameState.inventory.relics.length, 3);
+        shouldUnlock = gameState.inventory.relics.length >= 3;
         break;
-      case 'knowledge_master_1000':
-        progress = Math.min(gameState.statistics.correctAnswers, 1000);
-        shouldUnlock = gameState.statistics.correctAnswers >= 1000;
-        break;
-      case 'knowledge_master_10000':
-        progress = Math.min(gameState.statistics.correctAnswers, 10000);
-        shouldUnlock = gameState.statistics.correctAnswers >= 10000;
+      case 'knowledge_master_100':
+        progress = Math.min(gameState.statistics.correctAnswers, 100);
+        shouldUnlock = gameState.statistics.correctAnswers >= 100;
         break;
       case 'gardener_first':
         progress = gameState.gardenOfGrowth.isPlanted ? 1 : 0;
         shouldUnlock = gameState.gardenOfGrowth.isPlanted;
         break;
       case 'gardener_master':
-        progress = Math.min(gameState.gardenOfGrowth.growthCm, 50);
-        shouldUnlock = gameState.gardenOfGrowth.growthCm >= 50;
-        break;
-      case 'gardener_legend':
-        progress = Math.min(gameState.gardenOfGrowth.growthCm, 100);
-        shouldUnlock = gameState.gardenOfGrowth.growthCm >= 100;
+        progress = Math.min(gameState.gardenOfGrowth.growthCm, 25);
+        shouldUnlock = gameState.gardenOfGrowth.growthCm >= 25;
         break;
     }
 

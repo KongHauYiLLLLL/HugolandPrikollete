@@ -2,6 +2,7 @@ export interface GameState {
   coins: number;
   gems: number;
   shinyGems: number;
+  totems: number;
   zone: number;
   playerStats: PlayerStats;
   inventory: Inventory;
@@ -29,6 +30,12 @@ export interface GameState {
   multipliers: Multipliers;
   merchant: MerchantSystem;
   randomEvents: RandomEventsSystem;
+  damageStreak: DamageStreak;
+}
+
+export interface DamageStreak {
+  current: number;
+  multiplier: number;
 }
 
 export interface PlayerStats {
@@ -356,7 +363,7 @@ export interface Multipliers {
 export interface MerchantSystem {
   hugollandFragments: number;
   totalFragmentsEarned: number;
-  lastFragmentZone: number;
+  lastFragmentZone: number; // Now every 3 zones instead of 5
   showRewardModal: boolean;
   availableRewards: MerchantReward[];
 }

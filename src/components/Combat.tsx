@@ -37,7 +37,13 @@ interface CombatProps {
       rampActive: boolean;
     };
   };
+  totems?: number;
+  damageStreak?: {
+    current: number;
+    multiplier: number;
+  };
   onUseSkipCard?: () => void;
+  onUseTotem?: () => void;
 }
 
 export const Combat: React.FC<CombatProps> = ({ 
@@ -49,7 +55,10 @@ export const Combat: React.FC<CombatProps> = ({
   knowledgeStreak,
   hasUsedRevival = false,
   adventureSkills,
+  totems = 0,
+  damageStreak,
   onUseSkipCard
+  onUseTotem
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState<TriviaQuestion | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -415,6 +424,11 @@ export const Combat: React.FC<CombatProps> = ({
                  currentQuestion.type === 'reorder-words' ? 'Reorder Words' :
                  'Type Answer'}
               </span>
+              {totems > 0 && (
+                <span className="text-cyan-400 text-xs bg-cyan-900/30 px-2 py-1 rounded-full">
+                  🗿 {totems} Totems
+                </span>
+              )}
             </div>
           </div>
           <p className="text-white font-semibold text-lg sm:text-xl mb-6 leading-relaxed text-center">
@@ -485,6 +499,12 @@ export const Combat: React.FC<CombatProps> = ({
             </span>
           )}
 
+          {damageStreak && damageStreak.current > 0 && (
+            <span className="text-red-300 flex items-center gap-2 bg-red-900/30 px-3 py-1 rounded-lg">
+              💥 {damageStreak.current}x Damage ({Math.round((damageStreak.multiplier - 1) * 100)}% bonus)
+            </span>
+          )}
+
           {!hasUsedRevival && (
             <span className="text-green-300 flex items-center gap-2 bg-green-900/30 px-3 py-1 rounded-lg">
               <RotateCcw className="w-4 h-4" />
@@ -525,12 +545,30 @@ export const Combat: React.FC<CombatProps> = ({
             <span className="text-orange-400 flex items-center gap-1">
               <Sword className="w-4 h-4" />
               {playerStats.atk}
+              {damageStreak && damageStreak.current > 0 && (
+                <span className="text-red-400 font-bold">
+                  (x{damageStreak.multiplier.toFixed(1)})
+                </span>
+              )}
             </span>
             <span className="text-blue-400 flex items-center gap-1">
               <Shield className="w-4 h-4" />
               {playerStats.def}
             </span>
           </div>
+          
+          {/* Totem Revival Button */}
+          {playerStats.hp <= 0 && totems > 0 && onUseTotem && (
+            <div className="mt-3">
+              <button
+                onClick={onUseTotem}
+                className="w-full py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500 transition-all flex items-center gap-2 justify-center text-sm"
+              >
+                <span className="text-lg">🗿</span>
+                Use Totem to Revive
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="bg-black/40 p-4 rounded-xl border border-red-500/30">

@@ -13,6 +13,7 @@ interface PlayerStatsProps {
   coins: number;
   gems: number;
   shinyGems: number;
+  totems: number;
   playerTags: PlayerTag[];
   progression: {
   };
@@ -24,6 +25,7 @@ export const PlayerStats: React.FC<PlayerStatsProps> = ({
   coins, 
   gems, 
   shinyGems, 
+  totems,
   playerTags,
   progression
 }) => {
@@ -103,7 +105,7 @@ export const PlayerStats: React.FC<PlayerStatsProps> = ({
         </div>
 
         {/* Resources */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="bg-black/30 p-3 rounded-xl border border-yellow-500/30">
             <div className="flex items-center gap-2 mb-2">
               <Coins className="w-4 h-4 text-yellow-400" />
@@ -126,6 +128,14 @@ export const PlayerStats: React.FC<PlayerStatsProps> = ({
               <span className="text-white font-semibold text-xs">Shiny</span>
             </div>
             <p className="text-base font-bold text-yellow-400 text-center">{shinyGems.toLocaleString()}</p>
+          </div>
+
+          <div className="bg-black/30 p-3 rounded-xl border border-cyan-500/30">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-cyan-400 text-sm">🗿</span>
+              <span className="text-white font-semibold text-xs">Totems</span>
+            </div>
+            <p className="text-base font-bold text-cyan-400 text-center">{totems.toLocaleString()}</p>
           </div>
         </div>
       </div>

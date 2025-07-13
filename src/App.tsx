@@ -294,6 +294,7 @@ function App() {
               coins={gameState.coins}
               gems={gameState.gems}
               shinyGems={gameState.shinyGems}
+              totems={gameState.totems}
               playerTags={gameState.playerTags}
               progression={gameState.progression}
             />
@@ -349,6 +350,24 @@ function App() {
                   </p>
                   <p className="text-yellow-300 font-semibold text-sm sm:text-base">
                     +{Math.round(((gameState.knowledgeStreak?.multiplier || 1) - 1) * 100)}% reward bonus
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Damage Streak Display */}
+            {gameState.damageStreak?.current > 0 && (
+              <div className="bg-gradient-to-r from-red-900/50 to-orange-900/50 p-4 sm:p-6 rounded-xl border border-red-500/50 backdrop-blur-sm">
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <span className="text-2xl sm:text-3xl animate-pulse">💥</span>
+                    <h3 className="text-red-400 font-bold text-lg sm:text-xl">Damage Streak!</h3>
+                  </div>
+                  <p className="text-white text-base sm:text-lg mb-2">
+                    {gameState.damageStreak?.current || 0}x damage multiplier
+                  </p>
+                  <p className="text-red-300 font-semibold text-sm sm:text-base">
+                    +{Math.round(((gameState.damageStreak?.multiplier || 1) - 1) * 100)}% damage bonus
                   </p>
                 </div>
               </div>
@@ -416,6 +435,30 @@ function App() {
           );
         }
         return <Shop coins={gameState.coins} onOpenChest={openChest} onDiscardItem={discardItem} isPremium={gameState.isPremium} />;
+        return (
+          <Shop 
+            coins={gameState.coins} 
+            gems={gameState.gems}
+            totems={gameState.totems}
+            onOpenChest={openChest} 
+            onDiscardItem={discardItem} 
+            onExchangeCoinsToGems={(amount) => {
+              if (gameState.coins >= amount && amount >= 5) {
+                // This would be handled in the game state hook
+                return true;
+              }
+              return false;
+            }}
+            onSellTotem={() => {
+              if (gameState.totems > 0) {
+                // This would be handled in the game state hook
+                return true;
+              }
+              return false;
+            }}
+            isPremium={gameState.isPremium} 
+          />
+        );
       case 'inventory':
         return (
           <Inventory
@@ -694,15 +737,6 @@ function App() {
       />
       
       {/* Random Events Status */}
-      {gameState.randomEvents?.currentEvent && (
-        <div className="fixed top-20 right-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-3 rounded-lg shadow-lg z-40 max-w-xs">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-lg">{gameState.randomEvents.currentEvent.icon}</span>
-            <span className="font-bold text-sm">{gameState.randomEvents.currentEvent.name}</span>
-          </div>
-          <p className="text-xs opacity-90">{gameState.randomEvents.currentEvent.description}</p>
-        </div>
-      )}
     </div>
   );
 }

@@ -29,9 +29,12 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
   const getGrowthStage = (cm: number) => {
     if (cm < 5) return { stage: 'Seedling', emoji: '🌱', color: 'text-green-300' };
     if (cm < 15) return { stage: 'Young Plant', emoji: '🌿', color: 'text-green-400' };
-    if (cm < 30) return { stage: 'Growing Plant', emoji: '🪴', color: 'text-green-500' };
+    const waterOption = waterOptions.find(w => w.hours === hours);
+    if (!waterOption) return;
+    
+    const success = onBuyWater(hours);
     if (cm < 50) return { stage: 'Mature Plant', emoji: '🌳', color: 'text-green-600' };
-    if (cm < 75) return { stage: 'Large Tree', emoji: '🌲', color: 'text-emerald-500' };
+      alert(`Not enough coins! Need ${waterOption.cost} coins.`);
     return { stage: 'Ancient Tree', emoji: '🌴', color: 'text-emerald-600' };
   };
 
@@ -73,10 +76,10 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
                 <div className="text-sm text-gray-300 space-y-1 text-left">
                   <p>• Plant costs {garden.seedCost.toLocaleString()} coins (one-time)</p>
                   <p>• Every cm of growth = +5% bonus to ALL stats (ATK, DEF, HP)</p>
-                  <p>• Grows automatically, even when offline</p>
+                  <p>• Grows automatically, even when offline - FOREVER!</p>
                   <p>• Must keep watered to continue growing</p>
                   <p>• Water costs {garden.waterCost.toLocaleString()} coins per 24 hours</p>
-                  <p>• Maximum growth: {garden.maxGrowthCm}cm (+{garden.maxGrowthCm * 5}% bonus!)</p>
+                  <p>• Growth is unlimited - grow forever!</p>
                 </div>
               </div>
 
@@ -142,15 +145,16 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
               <div className="mt-4">
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-gray-300">Growth Progress</span>
-                  <span className="text-green-400">{((garden.growthCm / garden.maxGrowthCm) * 100).toFixed(1)}%</span>
+                  <span className="text-green-400">{garden.growthCm.toFixed(1)}cm</span>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-3">
-                  <div 
-                    className="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full transition-all duration-500"
-                    style={{ width: `${Math.min((garden.growthCm / garden.maxGrowthCm) * 100, 100)}%` }}
-                  />
+                <div className="bg-green-900/30 p-3 rounded-lg">
+                  <p className="text-green-400 font-bold text-center">
+                    🌿 Growing Forever! 🌿
+                  </p>
+                  <p className="text-gray-300 text-sm text-center">
+                    Current bonus: +{garden.totalGrowthBonus.toFixed(1)}% to all stats
+                  </p>
                 </div>
-              </div>
 
               {isWaterLow && (
                 <div className="mt-4 p-3 bg-red-900/30 rounded-lg border border-red-500/50">
@@ -220,7 +224,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
         {/* Info Footer */}
         <div className="mt-6 text-center text-xs text-gray-400">
           <p>💡 Your plant grows in real-time, even when you're not playing!</p>
-          <p>The Garden of Growth provides permanent stat bonuses that stack with research.</p>
+          <p>The Garden of Growth provides permanent stat bonuses and grows FOREVER!</p>
         </div>
       </div>
     </div>

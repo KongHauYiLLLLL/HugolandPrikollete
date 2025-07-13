@@ -6,15 +6,29 @@ import { LoadingSpinner } from './LoadingSpinner';
 
 interface ShopProps {
   coins: number;
+  gems: number;
+  totems: number;
   onOpenChest: (cost: number) => ChestReward | null;
   onDiscardItem: (itemId: string, type: 'weapon' | 'armor') => void;
+  onExchangeCoinsToGems: (coinAmount: number) => boolean;
+  onSellTotem: () => boolean;
   isPremium: boolean;
 }
 
-export const Shop: React.FC<ShopProps> = ({ coins, onOpenChest, onDiscardItem, isPremium }) => {
+export const Shop: React.FC<ShopProps> = ({ 
+  coins, 
+  gems, 
+  totems, 
+  onOpenChest, 
+  onDiscardItem, 
+  onExchangeCoinsToGems, 
+  onSellTotem, 
+  isPremium 
+}) => {
   const [lastReward, setLastReward] = useState<ChestReward | null>(null);
   const [isOpening, setIsOpening] = useState(false);
   const [showRewardModal, setShowRewardModal] = useState(false);
+  const [exchangeAmount, setExchangeAmount] = useState(5);
 
   const chests = [
     { 
@@ -71,9 +85,11 @@ export const Shop: React.FC<ShopProps> = ({ coins, onOpenChest, onDiscardItem, i
     <div className="bg-gradient-to-br from-yellow-900 via-orange-900 to-red-900 p-4 sm:p-6 rounded-lg shadow-2xl">
       <div className="text-center mb-4 sm:mb-6">
         <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Treasure Shop</h2>
-        <div className="flex items-center justify-center gap-2 text-yellow-300">
+        <div className="flex items-center justify-center gap-4 text-yellow-300">
           <Coins className="w-4 h-4 sm:w-5 sm:h-5" />
           <span className="font-semibold text-sm sm:text-base">{coins} Coins</span>
+          <Gem className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+          <span className="font-semibold text-sm sm:text-base text-purple-400">{gems} Gems</span>
         </div>
         {isPremium && (
           <div className="mt-2 px-3 py-1 bg-gradient-to-r from-yellow-600 to-yellow-500 rounded-full inline-block">
@@ -81,6 +97,60 @@ export const Shop: React.FC<ShopProps> = ({ coins, onOpenChest, onDiscardItem, i
           </div>
         )}
       </div>
+
+      {/* Currency Exchange */}
+      <div className="bg-black/30 p-4 rounded-lg border border-blue-500/30 mb-6">
+        <h3 className="text-white font-semibold mb-3 text-center">💱 Currency Exchange</h3>
+        <div className="space-y-3">
+          <div className="text-center">
+            <p className="text-blue-300 text-sm mb-2">Exchange Rate: 5 Coins = 1 Gem</p>
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <input
+                type="number"
+                min="5"
+                step="5"
+                value={exchangeAmount}
+                onChange={(e) => setExchangeAmount(Math.max(5, parseInt(e.target.value) || 5))}
+                className="w-20 p-2 bg-gray-800 text-white rounded border border-gray-600 text-center"
+              />
+              <span className="text-white">coins → {Math.floor(exchangeAmount / 5)} gems</span>
+            </div>
+            <button
+              onClick={() => onExchangeCoinsToGems(exchangeAmount)}
+              disabled={coins < exchangeAmount || exchangeAmount < 5}
+              className={`px-4 py-2 rounded font-semibold transition-all ${
+                coins >= exchangeAmount && exchangeAmount >= 5
+                  ? 'bg-blue-600 text-white hover:bg-blue-500'
+                  : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              Exchange
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Totem Shop */}
+      {totems > 0 && (
+        <div className="bg-black/30 p-4 rounded-lg border border-cyan-500/30 mb-6">
+          <h3 className="text-white font-semibold mb-3 text-center">🗿 Totem Shop</h3>
+          <div className="text-center">
+            <p className="text-cyan-300 text-sm mb-2">You have {totems} totems</p>
+            <p className="text-gray-300 text-xs mb-3">Totems can be sold for 500 coins each or used for revival</p>
+            <button
+              onClick={onSellTotem}
+              disabled={totems === 0}
+              className={`px-4 py-2 rounded font-semibold transition-all ${
+                totems > 0
+                  ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+                  : 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              Sell 1 Totem (500 coins)
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
         {chests.map((chest, index) => (

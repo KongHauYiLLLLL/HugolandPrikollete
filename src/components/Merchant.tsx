@@ -17,9 +17,9 @@ export const Merchant: React.FC<MerchantProps> = ({
   onClose
 }) => {
   const handleSpendFragments = () => {
-    const success = onSpendFragments();
+    const success = onSpendFragments(); // Now costs 1 fragment instead of 3
     if (!success) {
-      alert('You need 3 Hugoland Fragments to make a purchase!');
+      alert('You need 1 Hugoland Fragment to make a purchase!');
     }
   };
 
@@ -158,7 +158,7 @@ export const Merchant: React.FC<MerchantProps> = ({
             <div className="text-3xl sm:text-4xl">🧩</div>
             <div>
               <h3 className="text-white font-bold text-lg sm:text-xl">Hugoland Fragments</h3>
-              <p className="text-orange-300 text-sm">Earned every 5 zones</p>
+              <p className="text-orange-300 text-sm">Earned every 3 zones</p>
             </div>
           </div>
           
@@ -223,8 +223,8 @@ export const Merchant: React.FC<MerchantProps> = ({
 
         {/* How to Get Fragments */}
         <div className="mt-4 text-center text-xs sm:text-sm text-gray-400">
-          <p>💡 Earn 1 Hugoland Fragment every 5 zones you complete!</p>
-          <p>You need 3 fragments to make a purchase.</p>
+          <p>💡 Earn 1 Hugoland Fragment every 3 zones you complete!</p>
+          <p>You need 1 fragment to make a purchase.</p>
         </div>
       </div>
     </div>
