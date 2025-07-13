@@ -57,7 +57,7 @@ export const Combat: React.FC<CombatProps> = ({
   adventureSkills,
   totems = 0,
   damageStreak,
-  onUseSkipCard
+  onUseSkipCard,
   onUseTotem
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState<TriviaQuestion | null>(null);
