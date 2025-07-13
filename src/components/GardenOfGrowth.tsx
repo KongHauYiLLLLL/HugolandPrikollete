@@ -34,7 +34,9 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
     
     const success = onBuyWater(hours);
     if (cm < 50) return { stage: 'Mature Plant', emoji: '🌳', color: 'text-green-600' };
+    if (!success) {
       alert(`Not enough coins! Need ${waterOption.cost} coins.`);
+    }
     return { stage: 'Ancient Tree', emoji: '🌴', color: 'text-emerald-600' };
   };
 
@@ -155,6 +157,7 @@ export const GardenOfGrowth: React.FC<GardenOfGrowthProps> = ({
                     Current bonus: +{garden.totalGrowthBonus.toFixed(1)}% to all stats
                   </p>
                 </div>
+              </div>
 
               {isWaterLow && (
                 <div className="mt-4 p-3 bg-red-900/30 rounded-lg border border-red-500/50">
